@@ -1,0 +1,13 @@
+__pycache__
+venv
+.venv
+.idea
+dist
+/*.ico
+/*.spec
+.ruff_cache
+/src/user_preferences/user_preferences.json
+/logs
+/frontend/node_modules
+build
+!build/appicon.png

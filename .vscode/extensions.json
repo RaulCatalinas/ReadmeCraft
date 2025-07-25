@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    "golang.go",
+    "yoavbls.pretty-ts-errors",
+    "bradlc.vscode-tailwindcss",
+    "esbenp.prettier-vscode"
+  ]
+}
