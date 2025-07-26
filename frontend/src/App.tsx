@@ -1,14 +1,25 @@
-import Footer from "./components/Footer"
-import FormPanel from "./components/FormPanel"
-import Header from "./components/Heder"
-import PreviewPanel from "./components/PreviewPanel"
+// Components
+import Footer from "./components/footer/Footer"
+import Header from "./components/headers/Heder"
+import FormPanel from "./components/panels/FormPanel"
+import PreviewPanel from "./components/panels/PreviewPanel"
+
+// Stores
+import { useDarkModeStore } from "./stores/dark-mode"
 
 export default function App() {
+  const isDarkModeActive = useDarkModeStore(state => state.isDarkModeActive)
+
   return (
-    <div className="h-screen flex flex-col bg-gray-50 resize">
+    <div
+      className={`
+        pt-2 max-h-screen flex flex-col gap-y-2 overflow-hidden
+        ${isDarkModeActive ? "bg-gray-800" : "bg-gray-50"}
+      `}
+    >
       <Header />
 
-      <main className="flex-1 flex min-h-0">
+      <main className="flex-1 flex overflow-hidden">
         <FormPanel />
         <PreviewPanel />
       </main>
