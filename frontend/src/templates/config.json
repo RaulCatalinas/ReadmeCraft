@@ -1,0 +1,968 @@
+{
+  "templates": {
+    "web-app": {
+      "name": "Web Application",
+      "icon": "Globe",
+      "description": "Template for web applications and frontend projects",
+      "fields": [
+        {
+          "name": "PROJECT_NAME",
+          "label": "Project Name",
+          "type": "text",
+          "required": true,
+          "placeholder": "my-awesome-app"
+        },
+        {
+          "name": "DESCRIPTION",
+          "label": "Description",
+          "type": "textarea",
+          "required": true,
+          "placeholder": "A brief description of your project..."
+        },
+        {
+          "name": "DEMO_URL",
+          "label": "Demo URL",
+          "type": "url",
+          "required": false,
+          "placeholder": "https://my-app-demo.com"
+        },
+        {
+          "name": "SCREENSHOTS",
+          "label": "Screenshots",
+          "type": "textarea",
+          "required": false,
+          "placeholder": "![Screenshot](./screenshots/app.png)",
+          "help": "Add screenshots in markdown format"
+        },
+        {
+          "name": "FEATURES",
+          "label": "Features",
+          "type": "textarea",
+          "required": true,
+          "placeholder": "- Feature 1\n- Feature 2\n- Feature 3",
+          "help": "List main features, one per line with dashes"
+        },
+        {
+          "name": "TECH_STACK",
+          "label": "Tech Stack",
+          "type": "textarea",
+          "required": true,
+          "placeholder": "- React\n- TypeScript\n- Tailwind CSS",
+          "help": "Technologies used, one per line with dashes"
+        },
+        {
+          "name": "PREREQUISITES",
+          "label": "Prerequisites",
+          "type": "textarea",
+          "required": true,
+          "placeholder": "- Node.js >= 18.0.0\n- npm or yarn",
+          "help": "Requirements before installation"
+        },
+        {
+          "name": "REPO_URL",
+          "label": "Repository URL",
+          "type": "url",
+          "required": true,
+          "placeholder": "https://github.com/username/project"
+        },
+        {
+          "name": "INSTALL_COMMAND",
+          "label": "Install Command",
+          "type": "text",
+          "required": true,
+          "default": "npm install",
+          "placeholder": "npm install"
+        },
+        {
+          "name": "START_COMMAND",
+          "label": "Start Command",
+          "type": "text",
+          "required": true,
+          "default": "npm start",
+          "placeholder": "npm start"
+        },
+        {
+          "name": "DEV_URL",
+          "label": "Development URL",
+          "type": "url",
+          "required": false,
+          "default": "http://localhost:3000",
+          "placeholder": "http://localhost:3000"
+        },
+        {
+          "name": "ENV_VARIABLES",
+          "label": "Environment Variables",
+          "type": "textarea",
+          "required": false,
+          "placeholder": "REACT_APP_API_URL=https://api.example.com\nREACT_APP_ENV=development",
+          "help": "Environment variables needed for the project"
+        },
+        {
+          "name": "USAGE_INSTRUCTIONS",
+          "label": "Usage Instructions",
+          "type": "textarea",
+          "required": true,
+          "placeholder": "1. Open your browser\n2. Navigate to the application\n3. Start using the features",
+          "help": "How to use the application"
+        },
+        {
+          "name": "API_DOCS",
+          "label": "API Documentation",
+          "type": "textarea",
+          "required": false,
+          "placeholder": "The API is documented at `/api/docs`",
+          "help": "Information about API documentation if applicable"
+        },
+        {
+          "name": "DEPLOYMENT",
+          "label": "Deployment Instructions",
+          "type": "textarea",
+          "required": false,
+          "placeholder": "### Deploy to Vercel\n\n1. Fork this repository\n2. Import to Vercel\n3. Deploy",
+          "help": "Instructions for deploying the application"
+        },
+        {
+          "name": "LICENSE",
+          "label": "License",
+          "type": "text",
+          "required": true,
+          "default": "MIT",
+          "placeholder": "MIT"
+        },
+        {
+          "name": "AUTHOR_NAME",
+          "label": "Author Name",
+          "type": "text",
+          "required": true,
+          "placeholder": "John Doe"
+        },
+        {
+          "name": "CONTACT_INFO",
+          "label": "Contact Info",
+          "type": "text",
+          "required": true,
+          "placeholder": "john@example.com"
+        },
+        {
+          "name": "ACKNOWLEDGMENTS",
+          "label": "Acknowledgments",
+          "type": "textarea",
+          "required": false,
+          "placeholder": "- [Library Name](https://example.com) - Used for X\n- [Another Tool](https://example.com) - Used for Y",
+          "help": "Credits and acknowledgments"
+        }
+      ]
+    },
+    "library": {
+      "name": "Library",
+      "icon": "Book",
+      "description": "Template for libraries, packages and reusable components",
+      "fields": [
+        {
+          "name": "PROJECT_NAME",
+          "label": "Project Name",
+          "type": "text",
+          "required": true,
+          "placeholder": "my-awesome-library"
+        },
+        {
+          "name": "DESCRIPTION",
+          "label": "Description",
+          "type": "textarea",
+          "required": true,
+          "placeholder": "A powerful library for..."
+        },
+        {
+          "name": "BADGES",
+          "label": "Badges",
+          "type": "textarea",
+          "required": false,
+          "placeholder": "[![npm version](https://badge.fury.io/js/package-name.svg)](https://badge.fury.io/js/package-name)\n[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)",
+          "help": "Badges for build status, version, etc."
+        },
+        {
+          "name": "INSTALL_COMMAND",
+          "label": "Install Command",
+          "type": "text",
+          "required": true,
+          "default": "npm install package-name",
+          "placeholder": "npm install package-name"
+        },
+        {
+          "name": "LANGUAGE",
+          "label": "Programming Language",
+          "type": "text",
+          "required": true,
+          "default": "javascript",
+          "placeholder": "javascript"
+        },
+        {
+          "name": "QUICK_START_CODE",
+          "label": "Quick Start Code",
+          "type": "textarea",
+          "required": true,
+          "placeholder": "import { myFunction } from 'my-library';\n\nconst result = myFunction('hello');\nconsole.log(result);",
+          "help": "Simple example to get started"
+        },
+        {
+          "name": "MAIN_CLASS_OR_FUNCTION",
+          "label": "Main Class/Function",
+          "type": "text",
+          "required": true,
+          "placeholder": "MyLibrary"
+        },
+        {
+          "name": "API_DESCRIPTION",
+          "label": "API Description",
+          "type": "textarea",
+          "required": true,
+          "placeholder": "The main function of the library that does...",
+          "help": "Describe what the main API does"
+        },
+        {
+          "name": "PARAMETERS",
+          "label": "Parameters",
+          "type": "textarea",
+          "required": true,
+          "placeholder": "- `input` (string): The input to process\n- `options` (object, optional): Configuration options",
+          "help": "List of parameters the main function accepts"
+        },
+        {
+          "name": "RETURNS",
+          "label": "Returns",
+          "type": "textarea",
+          "required": true,
+          "placeholder": "Returns a `Promise<string>` with the processed result.",
+          "help": "What the function returns"
+        },
+        {
+          "name": "EXAMPLE_CODE",
+          "label": "Example Code",
+          "type": "textarea",
+          "required": true,
+          "placeholder": "const result = await myFunction('input', { option: true });\nconsole.log(result); // 'processed input'",
+          "help": "Detailed example of usage"
+        },
+        {
+          "name": "ADDITIONAL_METHODS",
+          "label": "Additional Methods",
+          "type": "textarea",
+          "required": false,
+          "placeholder": "### `helperFunction(data)`\n\nA helper function that...\n\n**Parameters:**\n- `data` (any): Input data\n\n**Returns:** Processed data",
+          "help": "Other methods or functions in the library"
+        },
+        {
+          "name": "FEATURES",
+          "label": "Features",
+          "type": "textarea",
+          "required": true,
+          "placeholder": "- 🚀 Fast and lightweight\n- 📦 Zero dependencies\n- 🔧 TypeScript support\n- 🌐 Works in browser and Node.js",
+          "help": "Key features of the library"
+        },
+        {
+          "name": "REQUIREMENTS",
+          "label": "Requirements",
+          "type": "textarea",
+          "required": true,
+          "placeholder": "- Node.js >= 16.0.0\n- npm >= 7.0.0",
+          "help": "System requirements"
+        },
+        {
+          "name": "BASIC_EXAMPLE",
+          "label": "Basic Example Code",
+          "type": "textarea",
+          "required": true,
+          "placeholder": "import myLibrary from 'my-library';\n\n// Basic usage\nconst result = myLibrary.process('data');\nconsole.log(result);",
+          "help": "Simple usage example"
+        },
+        {
+          "name": "ADVANCED_EXAMPLE",
+          "label": "Advanced Example Code",
+          "type": "textarea",
+          "required": true,
+          "placeholder": "import { MyLibrary, Config } from 'my-library';\n\n// Advanced usage with configuration\nconst config = new Config({\n  advanced: true,\n  timeout: 5000\n});\n\nconst lib = new MyLibrary(config);\nconst result = await lib.processAdvanced(data);",
+          "help": "Advanced usage example"
+        },
+        {
+          "name": "CONFIGURATION",
+          "label": "Configuration",
+          "type": "textarea",
+          "required": false,
+          "placeholder": "You can configure the library by passing options:\n\n```javascript\nconst options = {\n  timeout: 1000,\n  retries: 3,\n  debug: false\n};\n```",
+          "help": "Configuration options available"
+        },
+        {
+          "name": "TEST_COMMAND",
+          "label": "Test Command",
+          "type": "text",
+          "required": true,
+          "default": "npm test",
+          "placeholder": "npm test"
+        },
+        {
+          "name": "PERFORMANCE_NOTES",
+          "label": "Performance Notes",
+          "type": "textarea",
+          "required": false,
+          "placeholder": "This library is optimized for performance:\n\n- Processes 10,000 items per second\n- Memory usage stays under 50MB\n- Zero-copy operations where possible",
+          "help": "Performance characteristics"
+        },
+        {
+          "name": "REPO_URL",
+          "label": "Repository URL",
+          "type": "url",
+          "required": true,
+          "placeholder": "https://github.com/username/library"
+        },
+        {
+          "name": "DEV_INSTALL_COMMAND",
+          "label": "Dev Install Command",
+          "type": "text",
+          "required": true,
+          "default": "npm install",
+          "placeholder": "npm install"
+        },
+        {
+          "name": "LICENSE",
+          "label": "License",
+          "type": "text",
+          "required": true,
+          "default": "MIT",
+          "placeholder": "MIT"
+        },
+        {
+          "name": "DOCS_URL",
+          "label": "Documentation URL",
+          "type": "url",
+          "required": false,
+          "placeholder": "https://docs.example.com"
+        },
+        {
+          "name": "PACKAGE_URL",
+          "label": "Package URL",
+          "type": "url",
+          "required": false,
+          "placeholder": "https://www.npmjs.com/package/my-library"
+        },
+        {
+          "name": "AUTHOR_NAME",
+          "label": "Author Name",
+          "type": "text",
+          "required": true,
+          "placeholder": "John Doe"
+        },
+        {
+          "name": "CONTACT_INFO",
+          "label": "Contact Info",
+          "type": "text",
+          "required": true,
+          "placeholder": "john@example.com"
+        }
+      ]
+    },
+    "cli-tool": {
+      "name": "CLI Tool",
+      "icon": "Terminal",
+      "description": "Template for command-line tools and utilities",
+      "fields": [
+        {
+          "name": "PROJECT_NAME",
+          "label": "Project Name",
+          "type": "text",
+          "required": true,
+          "placeholder": "my-cli-tool"
+        },
+        {
+          "name": "DESCRIPTION",
+          "label": "Description",
+          "type": "textarea",
+          "required": true,
+          "placeholder": "A powerful CLI tool for..."
+        },
+        {
+          "name": "BADGES",
+          "label": "Badges",
+          "type": "textarea",
+          "required": false,
+          "placeholder": "[![npm version](https://badge.fury.io/js/my-cli.svg)](https://badge.fury.io/js/my-cli)\n[![Build Status](https://travis-ci.org/user/my-cli.svg?branch=main)](https://travis-ci.org/user/my-cli)"
+        },
+        {
+          "name": "GLOBAL_INSTALL_COMMAND",
+          "label": "Global Install Command",
+          "type": "text",
+          "required": true,
+          "default": "npm install -g my-cli-tool",
+          "placeholder": "npm install -g my-cli-tool"
+        },
+        {
+          "name": "LOCAL_INSTALL_COMMAND",
+          "label": "Local Install Command",
+          "type": "text",
+          "required": true,
+          "default": "npm install my-cli-tool",
+          "placeholder": "npm install my-cli-tool"
+        },
+        {
+          "name": "BINARY_DOWNLOADS",
+          "label": "Binary Downloads Info",
+          "type": "textarea",
+          "required": false,
+          "placeholder": "| Platform | Download |\n|----------|----------|\n| macOS    | [Download](link) |\n| Linux    | [Download](link) |\n| Windows  | [Download](link) |",
+          "help": "Information about binary downloads"
+        },
+        {
+          "name": "BASIC_USAGE",
+          "label": "Basic Usage",
+          "type": "text",
+          "required": true,
+          "placeholder": "my-cli [command] [options]",
+          "help": "Basic command syntax"
+        },
+        {
+          "name": "MAIN_COMMAND",
+          "label": "Main Command",
+          "type": "text",
+          "required": true,
+          "placeholder": "process",
+          "help": "Primary command name"
+        },
+        {
+          "name": "MAIN_COMMAND_DESCRIPTION",
+          "label": "Main Command Description",
+          "type": "textarea",
+          "required": true,
+          "placeholder": "Processes files according to the specified configuration.",
+          "help": "What the main command does"
+        },
+        {
+          "name": "MAIN_COMMAND_SYNTAX",
+          "label": "Main Command Syntax",
+          "type": "text",
+          "required": true,
+          "placeholder": "my-cli process [files...] [options]",
+          "help": "Command syntax with parameters"
+        },
+        {
+          "name": "MAIN_COMMAND_OPTIONS",
+          "label": "Main Command Options",
+          "type": "textarea",
+          "required": true,
+          "placeholder": "- `-o, --output <dir>`: Output directory\n- `-f, --format <type>`: Output format (json, yaml)\n- `-v, --verbose`: Enable verbose logging",
+          "help": "Available options for the main command"
+        },
+        {
+          "name": "MAIN_COMMAND_EXAMPLES",
+          "label": "Main Command Examples",
+          "type": "textarea",
+          "required": true,
+          "placeholder": "my-cli process file1.txt file2.txt -o ./output\nmy-cli process *.txt --format json --verbose",
+          "help": "Usage examples for the main command"
+        },
+        {
+          "name": "ADDITIONAL_COMMANDS",
+          "label": "Additional Commands",
+          "type": "textarea",
+          "required": false,
+          "placeholder": "#### `init`\n\nInitializes a new project configuration.\n\n```bash\nmy-cli init [project-name]\n```\n\n#### `config`\n\nManages configuration settings.\n\n```bash\nmy-cli config set <key> <value>\nmy-cli config get <key>\n```",
+          "help": "Other commands available in the CLI"
+        },
+        {
+          "name": "GLOBAL_OPTIONS",
+          "label": "Global Options",
+          "type": "textarea",
+          "required": true,
+          "placeholder": "- `-h, --help`: Show help information\n- `-V, --version`: Show version number\n- `--config <path>`: Specify config file path\n- `--no-color`: Disable colored output",
+          "help": "Options available for all commands"
+        },
+        {
+          "name": "EXAMPLE_1_TITLE",
+          "label": "Example 1 Title",
+          "type": "text",
+          "required": true,
+          "placeholder": "Basic File Processing",
+          "help": "Title for the first example"
+        },
+        {
+          "name": "EXAMPLE_1_COMMAND",
+          "label": "Example 1 Command",
+          "type": "text",
+          "required": true,
+          "placeholder": "my-cli process input.txt -o output/",
+          "help": "Command for the first example"
+        },
+        {
+          "name": "EXAMPLE_1_DESCRIPTION",
+          "label": "Example 1 Description",
+          "type": "textarea",
+          "required": true,
+          "placeholder": "This command processes the input.txt file and saves the result to the output/ directory.",
+          "help": "Explanation of what the first example does"
+        },
+        {
+          "name": "EXAMPLE_2_TITLE",
+          "label": "Example 2 Title",
+          "type": "text",
+          "required": true,
+          "placeholder": "Batch Processing with Options",
+          "help": "Title for the second example"
+        },
+        {
+          "name": "EXAMPLE_2_COMMAND",
+          "label": "Example 2 Command",
+          "type": "text",
+          "required": true,
+          "placeholder": "my-cli process *.txt --format json --verbose",
+          "help": "Command for the second example"
+        },
+        {
+          "name": "EXAMPLE_2_DESCRIPTION",
+          "label": "Example 2 Description",
+          "type": "textarea",
+          "required": true,
+          "placeholder": "Processes all .txt files in the current directory, outputs in JSON format, and shows detailed logging.",
+          "help": "Explanation of what the second example does"
+        },
+        {
+          "name": "MORE_EXAMPLES",
+          "label": "More Examples",
+          "type": "textarea",
+          "required": false,
+          "placeholder": "### Example 3: Advanced Configuration\n\n```bash\nmy-cli process data/ --config custom.json --parallel 4\n```\n\nProcesses all files in the data/ directory using a custom configuration file with 4 parallel workers.",
+          "help": "Additional examples if needed"
+        },
+        {
+          "name": "CONFIG_FILE",
+          "label": "Config File Name",
+          "type": "text",
+          "required": false,
+          "placeholder": ".myclirc",
+          "help": "Configuration file name"
+        },
+        {
+          "name": "CONFIG_FORMAT",
+          "label": "Config File Format",
+          "type": "text",
+          "required": false,
+          "default": "json",
+          "placeholder": "json",
+          "help": "Configuration file format (json, yaml, etc.)"
+        },
+        {
+          "name": "CONFIG_EXAMPLE",
+          "label": "Config Example",
+          "type": "textarea",
+          "required": false,
+          "placeholder": "{\n  \"output\": \"./dist\",\n  \"format\": \"json\",\n  \"verbose\": true,\n  \"parallel\": 2\n}",
+          "help": "Example configuration file content"
+        },
+        {
+          "name": "ENV_VARIABLES",
+          "label": "Environment Variables",
+          "type": "textarea",
+          "required": false,
+          "placeholder": "- `MY_CLI_CONFIG`: Path to configuration file\n- `MY_CLI_OUTPUT`: Default output directory\n- `MY_CLI_VERBOSE`: Enable verbose mode (true/false)",
+          "help": "Environment variables the CLI recognizes"
+        },
+        {
+          "name": "PREREQUISITES",
+          "label": "Prerequisites",
+          "type": "textarea",
+          "required": true,
+          "placeholder": "- Node.js >= 16.0.0\n- npm >= 7.0.0",
+          "help": "System requirements for development"
+        },
+        {
+          "name": "REPO_URL",
+          "label": "Repository URL",
+          "type": "url",
+          "required": true,
+          "placeholder": "https://github.com/username/cli-tool"
+        },
+        {
+          "name": "DEV_INSTALL_COMMAND",
+          "label": "Dev Install Command",
+          "type": "text",
+          "required": true,
+          "default": "npm install",
+          "placeholder": "npm install"
+        },
+        {
+          "name": "BUILD_COMMAND",
+          "label": "Build Command",
+          "type": "text",
+          "required": true,
+          "default": "npm run build",
+          "placeholder": "npm run build"
+        },
+        {
+          "name": "LOCAL_RUN_COMMAND",
+          "label": "Local Run Command",
+          "type": "text",
+          "required": true,
+          "default": "npm run dev",
+          "placeholder": "npm run dev"
+        },
+        {
+          "name": "TEST_COMMAND",
+          "label": "Test Command",
+          "type": "text",
+          "required": true,
+          "default": "npm test",
+          "placeholder": "npm test"
+        },
+        {
+          "name": "BUILD_ALL_COMMAND",
+          "label": "Build All Platforms Command",
+          "type": "text",
+          "required": true,
+          "default": "npm run build:all",
+          "placeholder": "npm run build:all"
+        },
+        {
+          "name": "BUILD_SPECIFIC_COMMAND",
+          "label": "Build Specific Platform Command",
+          "type": "text",
+          "required": true,
+          "default": "npm run build:linux",
+          "placeholder": "npm run build:linux"
+        },
+        {
+          "name": "LICENSE",
+          "label": "License",
+          "type": "text",
+          "required": true,
+          "default": "MIT",
+          "placeholder": "MIT"
+        },
+        {
+          "name": "TROUBLESHOOTING",
+          "label": "Troubleshooting",
+          "type": "textarea",
+          "required": false,
+          "placeholder": "### Command not found\n\nIf you get a \"command not found\" error:\n\n1. Ensure the package is installed globally\n2. Check that your PATH includes npm global bin directory\n3. Try reinstalling: `npm uninstall -g my-cli && npm install -g my-cli`",
+          "help": "Common issues and solutions"
+        },
+        {
+          "name": "AUTHOR_NAME",
+          "label": "Author Name",
+          "type": "text",
+          "required": true,
+          "placeholder": "John Doe"
+        },
+        {
+          "name": "CONTACT_INFO",
+          "label": "Contact Info",
+          "type": "text",
+          "required": true,
+          "placeholder": "john@example.com"
+        },
+        {
+          "name": "ACKNOWLEDGMENTS",
+          "label": "Acknowledgments",
+          "type": "textarea",
+          "required": false,
+          "placeholder": "- [Commander.js](https://github.com/tj/commander.js) - CLI framework\n- [Chalk](https://github.com/chalk/chalk) - Terminal colors",
+          "help": "Libraries and tools used"
+        }
+      ]
+    },
+    "api-service": {
+      "name": "API Service",
+      "icon": "Server",
+      "description": "Template for REST APIs, microservices and backend services",
+      "fields": [
+        {
+          "name": "PROJECT_NAME",
+          "label": "Project Name",
+          "type": "text",
+          "required": true,
+          "placeholder": "my-api-service"
+        },
+        {
+          "name": "DESCRIPTION",
+          "label": "Description",
+          "type": "textarea",
+          "required": true,
+          "placeholder": "A RESTful API service for..."
+        },
+        {
+          "name": "BADGES",
+          "label": "Badges",
+          "type": "textarea",
+          "required": false,
+          "placeholder": "[![Build Status](https://travis-ci.org/user/api.svg?branch=main)](https://travis-ci.org/user/api)\n[![API Documentation](https://img.shields.io/badge/API-Documentation-blue)](https://api-docs.example.com)"
+        },
+        {
+          "name": "BASE_URL",
+          "label": "Base URL",
+          "type": "url",
+          "required": true,
+          "placeholder": "https://api.example.com/v1",
+          "help": "Production API base URL"
+        },
+        {
+          "name": "DEMO_URL",
+          "label": "Demo URL",
+          "type": "url",
+          "required": false,
+          "placeholder": "https://api-docs.example.com",
+          "help": "Link to interactive API documentation"
+        },
+        {
+          "name": "PREREQUISITES",
+          "label": "Prerequisites",
+          "type": "textarea",
+          "required": true,
+          "placeholder": "- Node.js >= 18.0.0\n- PostgreSQL >= 13\n- Redis >= 6.0",
+          "help": "System requirements"
+        },
+        {
+          "name": "REPO_URL",
+          "label": "Repository URL",
+          "type": "url",
+          "required": true,
+          "placeholder": "https://github.com/username/api-service"
+        },
+        {
+          "name": "INSTALL_COMMAND",
+          "label": "Install Command",
+          "type": "text",
+          "required": true,
+          "default": "npm install",
+          "placeholder": "npm install"
+        },
+        {
+          "name": "START_COMMAND",
+          "label": "Start Command",
+          "type": "text",
+          "required": true,
+          "default": "npm start",
+          "placeholder": "npm start"
+        },
+        {
+          "name": "DEV_URL",
+          "label": "Development URL",
+          "type": "url",
+          "required": false,
+          "default": "http://localhost:3000",
+          "placeholder": "http://localhost:3000"
+        },
+        {
+          "name": "AUTHENTICATION_TYPE",
+          "label": "Authentication Type",
+          "type": "textarea",
+          "required": true,
+          "placeholder": "This API uses JWT (JSON Web Tokens) for authentication.\n\nTo authenticate:\n1. Obtain a token from `/auth/login`\n2. Include it in the Authorization header: `Bearer <token>`",
+          "help": "Authentication method and instructions"
+        },
+        {
+          "name": "AUTH_EXAMPLE",
+          "label": "Auth Example",
+          "type": "textarea",
+          "required": false,
+          "placeholder": "curl -X POST https://api.example.com/v1/auth/login \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\"email\": \"user@example.com\", \"password\": \"password\"}'",
+          "help": "Example of how to authenticate"
+        },
+        {
+          "name": "ENDPOINT_CATEGORY_1",
+          "label": "First Endpoint Category",
+          "type": "text",
+          "required": true,
+          "placeholder": "Users",
+          "help": "Name of the first API endpoint category"
+        },
+        {
+          "name": "ENDPOINT_1_METHOD",
+          "label": "Endpoint 1 Method",
+          "type": "text",
+          "required": true,
+          "placeholder": "GET",
+          "help": "HTTP method (GET, POST, PUT, DELETE, etc.)"
+        },
+        {
+          "name": "ENDPOINT_1_PATH",
+          "label": "Endpoint 1 Path",
+          "type": "text",
+          "required": true,
+          "placeholder": "/users",
+          "help": "API endpoint path"
+        },
+        {
+          "name": "ENDPOINT_1_DESCRIPTION",
+          "label": "Endpoint 1 Description",
+          "type": "textarea",
+          "required": true,
+          "placeholder": "Retrieves a list of all users in the system.",
+          "help": "What this endpoint does"
+        },
+        {
+          "name": "ENDPOINT_1_PARAMETERS",
+          "label": "Endpoint 1 Parameters",
+          "type": "textarea",
+          "required": true,
+          "placeholder": "- `page` (integer, optional): Page number (default: 1)\n- `limit` (integer, optional): Items per page (default: 10, max: 100)\n- `search` (string, optional): Search term for filtering users",
+          "help": "Query parameters, path parameters, etc."
+        },
+        {
+          "name": "ENDPOINT_1_REQUEST_BODY",
+          "label": "Endpoint 1 Request Body",
+          "type": "textarea",
+          "required": false,
+          "placeholder": "{\n  \"name\": \"John Doe\",\n  \"email\": \"john@example.com\",\n  \"role\": \"user\"\n}",
+          "help": "Request body schema (for POST/PUT requests)"
+        },
+        {
+          "name": "ENDPOINT_1_RESPONSE",
+          "label": "Endpoint 1 Response",
+          "type": "textarea",
+          "required": true,
+          "placeholder": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": 1,\n      \"name\": \"John Doe\",\n      \"email\": \"john@example.com\",\n      \"createdAt\": \"2024-01-01T00:00:00Z\"\n    }\n  ],\n  \"pagination\": {\n    \"page\": 1,\n    \"limit\": 10,\n    \"total\": 25\n  }\n}",
+          "help": "Example response body"
+        },
+        {
+          "name": "ENDPOINT_1_EXAMPLE",
+          "label": "Endpoint 1 Example",
+          "type": "textarea",
+          "required": true,
+          "placeholder": "curl -X GET \"https://api.example.com/v1/users?page=1&limit=10\" \\\n  -H \"Authorization: Bearer YOUR_TOKEN\"",
+          "help": "Complete example of how to call this endpoint"
+        },
+        {
+          "name": "MORE_ENDPOINTS",
+          "label": "More Endpoints",
+          "type": "textarea",
+          "required": false,
+          "placeholder": "#### POST /users\n\nCreates a new user.\n\n**Request Body:**\n```json\n{\n  \"name\": \"Jane Doe\",\n  \"email\": \"jane@example.com\"\n}\n```\n\n**Response:**\n```json\n{\n  \"success\": true,\n  \"data\": {\n    \"id\": 2,\n    \"name\": \"Jane Doe\",\n    \"email\": \"jane@example.com\"\n  }\n}\n```",
+          "help": "Additional endpoints documentation"
+        },
+        {
+          "name": "AUTH_HEADER",
+          "label": "Auth Header",
+          "type": "text",
+          "required": false,
+          "placeholder": "Authorization: Bearer <token>",
+          "help": "Required authorization header format"
+        },
+        {
+          "name": "ENV_VARIABLES",
+          "label": "Environment Variables",
+          "type": "textarea",
+          "required": true,
+          "placeholder": "```bash\n# Database\nDATABASE_URL=postgresql://user:password@localhost:5432/mydb\n\n# JWT\nJWT_SECRET=your-super-secret-jwt-key\nJWT_EXPIRES_IN=24h\n\n# Server\nPORT=3000\nNODE_ENV=development\n\n# Redis (optional)\nREDIS_URL=redis://localhost:6379\n```",
+          "help": "Required environment variables"
+        },
+        {
+          "name": "DATABASE_SETUP",
+          "label": "Database Setup",
+          "type": "textarea",
+          "required": false,
+          "placeholder": "1. Create a PostgreSQL database:\n   ```sql\n   CREATE DATABASE myapi;\n   ```\n\n2. Run migrations:\n   ```bash\n   npm run migrate\n   ```\n\n3. Seed the database (optional):\n   ```bash\n   npm run seed\n   ```",
+          "help": "Database setup instructions"
+        },
+        {
+          "name": "TEST_COMMAND",
+          "label": "Test Command",
+          "type": "text",
+          "required": true,
+          "default": "npm test",
+          "placeholder": "npm test"
+        },
+        {
+          "name": "API_TEST_EXAMPLE",
+          "label": "API Test Example",
+          "type": "textarea",
+          "required": true,
+          "placeholder": "# Using curl\ncurl -X GET https://api.example.com/v1/health\n\n# Using HTTPie\nhttp GET https://api.example.com/v1/health\n\n# Run integration tests\nnpm run test:api",
+          "help": "Examples of how to test the API"
+        },
+        {
+          "name": "PORT",
+          "label": "Port",
+          "type": "text",
+          "required": true,
+          "default": "3000",
+          "placeholder": "3000",
+          "help": "Default port number"
+        },
+        {
+          "name": "DEPLOYMENT_INSTRUCTIONS",
+          "label": "Deployment Instructions",
+          "type": "textarea",
+          "required": false,
+          "placeholder": "### Deploy to Heroku\n\n1. Create a Heroku app:\n   ```bash\n   heroku create my-api\n   ```\n\n2. Set environment variables:\n   ```bash\n   heroku config:set NODE_ENV=production\n   heroku config:set JWT_SECRET=your-secret\n   ```\n\n3. Deploy:\n   ```bash\n   git push heroku main\n   ```",
+          "help": "Platform-specific deployment instructions"
+        },
+        {
+          "name": "API_DOCS_URL",
+          "label": "API Docs URL",
+          "type": "url",
+          "required": false,
+          "placeholder": "https://api-docs.example.com",
+          "help": "Link to interactive API documentation"
+        },
+        {
+          "name": "POSTMAN_COLLECTION_URL",
+          "label": "Postman Collection URL",
+          "type": "url",
+          "required": false,
+          "placeholder": "https://www.postman.com/collections/abc123",
+          "help": "Link to Postman collection"
+        },
+        {
+          "name": "OPENAPI_SPEC_URL",
+          "label": "OpenAPI Spec URL",
+          "type": "url",
+          "required": false,
+          "placeholder": "https://api.example.com/openapi.json",
+          "help": "Link to OpenAPI/Swagger specification"
+        },
+        {
+          "name": "SECURITY_NOTES",
+          "label": "Security Notes",
+          "type": "textarea",
+          "required": false,
+          "placeholder": "## Security Best Practices\n\n- All endpoints use HTTPS in production\n- JWT tokens expire after 24 hours\n- Rate limiting: 100 requests per minute per IP\n- Input validation on all endpoints\n- SQL injection protection via parameterized queries\n- CORS configured for specific origins only",
+          "help": "Security considerations and implementations"
+        },
+        {
+          "name": "PERFORMANCE_NOTES",
+          "label": "Performance Notes",
+          "type": "textarea",
+          "required": false,
+          "placeholder": "## Performance Characteristics\n\n- Response times: < 100ms for most endpoints\n- Throughput: 1000+ requests/second\n- Database connection pooling enabled\n- Redis caching for frequently accessed data\n- Pagination implemented for large datasets\n- Database indexes optimized for common queries",
+          "help": "Performance metrics and optimizations"
+        },
+        {
+          "name": "LICENSE",
+          "label": "License",
+          "type": "text",
+          "required": true,
+          "default": "MIT",
+          "placeholder": "MIT"
+        },
+        {
+          "name": "AUTHOR_NAME",
+          "label": "Author Name",
+          "type": "text",
+          "required": true,
+          "placeholder": "John Doe"
+        },
+        {
+          "name": "CONTACT_INFO",
+          "label": "Contact Info",
+          "type": "text",
+          "required": true,
+          "placeholder": "john@example.com"
+        },
+        {
+          "name": "ACKNOWLEDGMENTS",
+          "label": "Acknowledgments",
+          "type": "textarea",
+          "required": false,
+          "placeholder": "- [Express.js](https://expressjs.com/) - Web framework\n- [Prisma](https://www.prisma.io/) - Database ORM\n- [JWT](https://jwt.io/) - Authentication tokens\n- [Redis](https://redis.io/) - Caching layer",
+          "help": "Libraries and services used"
+        }
+      ]
+    }
+  }
+}

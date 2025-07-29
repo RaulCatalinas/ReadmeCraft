@@ -17,14 +17,18 @@ export default function App() {
         ${isDarkModeActive ? "bg-gray-800" : "bg-gray-50"}
       `}
     >
-      <Header />
+      <div className="p-1">
+        <Header />
+      </div>
 
       <main className="flex-1 flex overflow-hidden">
         <FormPanel />
         <PreviewPanel />
       </main>
 
-      <Footer />
+      <div className="p-1">
+        <Footer />
+      </div>
     </div>
   )
 }

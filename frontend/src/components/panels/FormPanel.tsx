@@ -1,16 +1,21 @@
-// Components
-import FormProjectInfo from "../forms/FormProjectInfo"
-
 // Stores
 import { useDarkModeStore } from "@/src/stores/dark-mode"
 
+// React
+import { useRef } from "react"
+
+// Components
+import DynamicForm from "../forms/DinamicForm"
+import ScrollIndicator from "../indicators/ScrollIndicator"
+
 export default function FormPanel() {
   const isDarkModeActive = useDarkModeStore(state => state.isDarkModeActive)
+  const scrollContainerRef = useRef<HTMLDivElement>(null)
 
   return (
     <div
       className={`
-        w-1/2 border-r flex flex-col
+        w-1/2 border-r flex flex-col relative
         ${
           isDarkModeActive
             ? "bg-gray-800 border-gray-700"
@@ -18,7 +23,7 @@ export default function FormPanel() {
         }
       `}
     >
-      <div className="flex-1 overflow-y-auto">
+      <div ref={scrollContainerRef} className="flex-1 overflow-y-auto">
         <div className="p-6">
           <h2
             className={`
@@ -29,9 +34,11 @@ export default function FormPanel() {
             Project Information
           </h2>
 
-          <FormProjectInfo />
+          <DynamicForm />
         </div>
       </div>
+
+      <ScrollIndicator containerRef={scrollContainerRef} />
     </div>
   )
 }
