@@ -1,4 +1,4 @@
-module ReadmeCraft
+module github.com/RaulCatalinas/ReadmeCraft
 
 go 1.24.2
 

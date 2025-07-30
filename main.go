@@ -10,6 +10,9 @@ import (
 	"github.com/wailsapp/wails/v2"
 	"github.com/wailsapp/wails/v2/pkg/options"
 	"github.com/wailsapp/wails/v2/pkg/options/assetserver"
+
+	"github.com/RaulCatalinas/ReadmeCraft/internal/types"
+	userPreferences "github.com/RaulCatalinas/ReadmeCraft/internal/user_preferences"
 )
 
 //go:embed all:frontend/dist
@@ -53,9 +56,14 @@ func main() {
 			Assets:  assets,
 			Handler: NewFileLoader(),
 		},
-		OnStartup: app.startup,
+		OnStartup:  app.startup,
+		OnShutdown: app.shutdown,
 		Bind: []interface{}{
 			app,
+			userPreferences.NewUserPreferencesGenerator(),
+		},
+		EnumBind: []interface{}{
+			types.AllUserPreferences,
 		},
 	})
 
