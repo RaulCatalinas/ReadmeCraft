@@ -1,10 +1,40 @@
+// React
+import { useState } from "react"
+
+// Stores
+import { useFormStore } from "@/src/stores/form"
 import { useReadyToExportStore } from "@/src/stores/ready-to-export"
+
+// Utils
+import { exportReadmeFile } from "@/src/utils/export-utils"
+import { generateReadme } from "@/src/utils/readme-generator"
 
 export default function ButtonExportReadme() {
   const isReadyToExport = useReadyToExportStore(state => state.isReadyToExport)
+  const selectedTemplate = useFormStore(state => state.selectedTemplate)
+  const formValues = useFormStore(state => state.formValues)
+
+  const [isExporting, setIsExporting] = useState(false)
 
   const handleExport = () => {
-    console.log("Expoerting README.md")
+    if (!isReadyToExport || isExporting) return
+
+    setIsExporting(true)
+
+    try {
+      // Generate the final README content
+      const readmeContent = generateReadme(selectedTemplate, formValues)
+
+      // Export the file
+      exportReadmeFile(readmeContent)
+
+      console.log("README exported successfully")
+    } catch (error) {
+      console.error("Failed to export README:", error)
+      // Here you might want to show a toast notification or error message
+    } finally {
+      setIsExporting(false)
+    }
   }
 
   return (
@@ -12,12 +42,16 @@ export default function ButtonExportReadme() {
       className={`
         px-6 py-2 bg-blue-600 text-white rounded-lg 
         hover:bg-blue-700 transition-colors font-medium 
-        ${!isReadyToExport ? "opacity-50 cursor-not-allowed" : "hover:cursor-pointer"}
+        ${
+          !isReadyToExport || isExporting
+            ? "opacity-50 cursor-not-allowed"
+            : "hover:cursor-pointer"
+        }
       `}
-      disabled={!isReadyToExport}
+      disabled={!isReadyToExport || isExporting}
       onClick={handleExport}
     >
-      Export README
+      {isExporting ? "Exporting..." : "Export README"}
     </button>
   )
 }
