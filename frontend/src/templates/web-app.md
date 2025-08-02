@@ -2,9 +2,10 @@
 
 {{DESCRIPTION}}
 
+{{#if DEMO_URL}}
+
 ## 🚀 Demo
 
-{{#if DEMO_URL}}
 **[Live Demo]({{DEMO_URL}})**
 {{/if}}
 
