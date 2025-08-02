@@ -963,6 +963,366 @@
           "help": "Libraries and services used"
         }
       ]
+    },
+    "multiplatform-app": {
+      "name": "Multiplatform App",
+      "icon": "Smartphone",
+      "description": "Template for native multiplatform applications (React Native, Flutter, .NET MAUI, etc.)",
+      "fields": [
+        {
+          "name": "PROJECT_NAME",
+          "label": "Project Name",
+          "type": "text",
+          "required": true,
+          "placeholder": "my-multiplatform-app"
+        },
+        {
+          "name": "DESCRIPTION",
+          "label": "Description",
+          "type": "textarea",
+          "required": true,
+          "placeholder": "A native multiplatform application for..."
+        },
+        {
+          "name": "DEMO_VIDEO_URL",
+          "label": "Demo Video URL",
+          "type": "url",
+          "required": false,
+          "placeholder": "https://youtube.com/watch?v=abc123",
+          "help": "Link to demo video (YouTube, Vimeo, etc.)"
+        },
+        {
+          "name": "SCREENSHOTS",
+          "label": "Screenshots",
+          "type": "textarea",
+          "required": false,
+          "placeholder": "| iOS | Android | Desktop |\n|-----|---------|----------|\n| ![iOS](./screenshots/ios.png) | ![Android](./screenshots/android.png) | ![Desktop](./screenshots/desktop.png) |",
+          "help": "Screenshots in markdown format, consider showing different platforms"
+        },
+        {
+          "name": "SUPPORTED_PLATFORMS",
+          "label": "Supported Platforms",
+          "type": "textarea",
+          "required": true,
+          "placeholder": "✅ **iOS** - iPhone and iPad (iOS 12.0+)\n✅ **Android** - Phone and Tablet (API 21+)\n✅ **Windows** - Windows 10/11\n✅ **macOS** - macOS 10.15+\n✅ **Linux** - Ubuntu 18.04+\n🌐 **Web** - Modern browsers",
+          "help": "List of supported platforms with version requirements"
+        },
+        {
+          "name": "DOWNLOAD_LINKS",
+          "label": "Download Links",
+          "type": "textarea",
+          "required": false,
+          "placeholder": "| Platform | Store | Direct Download |\n|----------|-------|----------------|\n| iOS | [App Store](link) | - |\n| Android | [Google Play](link) | [APK](link) |\n| Windows | [Microsoft Store](link) | [Installer](link) |\n| macOS | [Mac App Store](link) | [DMG](link) |\n| Linux | - | [AppImage](link) |",
+          "help": "Download links for different platforms"
+        },
+        {
+          "name": "FEATURES",
+          "label": "Features",
+          "type": "textarea",
+          "required": true,
+          "placeholder": "- 📱 Native performance on all platforms\n- 🔄 Real-time synchronization\n- 🔒 Biometric authentication\n- 📸 Camera integration\n- 🗺️ GPS and location services\n- 💾 Offline support\n- 🌐 Cross-platform data sharing",
+          "help": "Key features, emphasize native capabilities"
+        },
+        {
+          "name": "TECH_STACK",
+          "label": "Tech Stack",
+          "type": "textarea",
+          "required": true,
+          "placeholder": "- **Framework**: React Native / Flutter / .NET MAUI\n- **Language**: TypeScript / Dart / C#\n- **State Management**: Redux / Provider / MVVM\n- **Database**: SQLite / Realm / Core Data\n- **Backend**: Node.js / Firebase / Azure",
+          "help": "Technologies used, organized by category"
+        },
+        {
+          "name": "PREREQUISITES",
+          "label": "Prerequisites",
+          "type": "textarea",
+          "required": true,
+          "placeholder": "**General:**\n- Node.js >= 18.0.0\n- Git\n\n**iOS Development:**\n- macOS with Xcode 14+\n- iOS Simulator or physical device\n\n**Android Development:**\n- Android Studio\n- Android SDK (API 21+)\n- Android emulator or physical device\n\n**Desktop Development:**\n- Platform-specific build tools",
+          "help": "Development environment requirements"
+        },
+        {
+          "name": "REPO_URL",
+          "label": "Repository URL",
+          "type": "url",
+          "required": true,
+          "placeholder": "https://github.com/username/multiplatform-app"
+        },
+        {
+          "name": "INSTALL_COMMAND",
+          "label": "Install Dependencies Command",
+          "type": "text",
+          "required": true,
+          "default": "npm install",
+          "placeholder": "npm install"
+        },
+        {
+          "name": "ENV_VARIABLES",
+          "label": "Environment Variables",
+          "type": "textarea",
+          "required": false,
+          "placeholder": "API_URL=https://api.example.com\nAPI_KEY=your-api-key\nENABLE_ANALYTICS=true\nDEBUG_MODE=false",
+          "help": "Environment variables needed for the project"
+        },
+        {
+          "name": "MOBILE_SETUP",
+          "label": "Mobile Setup Instructions",
+          "type": "textarea",
+          "required": false,
+          "placeholder": "**iOS Requirements:**\n- Xcode Command Line Tools\n- CocoaPods (for React Native)\n- iOS Simulator\n\n**Android Requirements:**\n- Android Studio\n- Android SDK\n- Android Virtual Device (AVD)",
+          "help": "Mobile-specific setup requirements"
+        },
+        {
+          "name": "IOS_SETUP_COMMAND",
+          "label": "iOS Setup Command",
+          "type": "text",
+          "required": false,
+          "placeholder": "cd ios && pod install",
+          "help": "Command to set up iOS dependencies"
+        },
+        {
+          "name": "ANDROID_SETUP_COMMAND",
+          "label": "Android Setup Command",
+          "type": "text",
+          "required": false,
+          "placeholder": "cd android && ./gradlew build",
+          "help": "Command to set up Android dependencies"
+        },
+        {
+          "name": "DESKTOP_SETUP",
+          "label": "Desktop Setup Instructions",
+          "type": "textarea",
+          "required": false,
+          "placeholder": "**Windows:**\n- Visual Studio 2022 with C++ workload\n\n**macOS:**\n- Xcode Command Line Tools\n\n**Linux:**\n- Build essentials and platform-specific libraries",
+          "help": "Desktop platform setup requirements"
+        },
+        {
+          "name": "DESKTOP_SETUP_COMMAND",
+          "label": "Desktop Setup Command",
+          "type": "text",
+          "required": false,
+          "placeholder": "npm run setup:desktop",
+          "help": "Command to set up desktop dependencies"
+        },
+        {
+          "name": "WEB_SETUP",
+          "label": "Web Setup Instructions",
+          "type": "textarea",
+          "required": false,
+          "placeholder": "The web version runs in modern browsers with no additional setup required.",
+          "help": "Web platform setup instructions"
+        },
+        {
+          "name": "WEB_SETUP_COMMAND",
+          "label": "Web Setup Command",
+          "type": "text",
+          "required": false,
+          "placeholder": "npm run setup:web",
+          "help": "Command to set up web dependencies"
+        },
+        {
+          "name": "MOBILE_DEV_COMMANDS",
+          "label": "Mobile Dev Commands Available",
+          "type": "checkbox",
+          "required": false,
+          "help": "Check if mobile development commands are available"
+        },
+        {
+          "name": "IOS_DEV_COMMAND",
+          "label": "iOS Development Command",
+          "type": "text",
+          "required": false,
+          "placeholder": "npm run ios",
+          "help": "Command to run iOS app in development"
+        },
+        {
+          "name": "ANDROID_DEV_COMMAND",
+          "label": "Android Development Command",
+          "type": "text",
+          "required": false,
+          "placeholder": "npm run android",
+          "help": "Command to run Android app in development"
+        },
+        {
+          "name": "DESKTOP_DEV_COMMAND",
+          "label": "Desktop Development Command",
+          "type": "text",
+          "required": false,
+          "placeholder": "npm run desktop",
+          "help": "Command to run desktop app in development"
+        },
+        {
+          "name": "WEB_DEV_COMMAND",
+          "label": "Web Development Command",
+          "type": "text",
+          "required": false,
+          "placeholder": "npm run web",
+          "help": "Command to run web app in development"
+        },
+        {
+          "name": "WEB_DEV_URL",
+          "label": "Web Development URL",
+          "type": "url",
+          "required": false,
+          "default": "http://localhost:3000",
+          "placeholder": "http://localhost:3000"
+        },
+        {
+          "name": "MOBILE_BUILD_COMMANDS",
+          "label": "Mobile Build Commands Available",
+          "type": "checkbox",
+          "required": false,
+          "help": "Check if mobile build commands are available"
+        },
+        {
+          "name": "IOS_BUILD_COMMAND",
+          "label": "iOS Build Command",
+          "type": "text",
+          "required": false,
+          "placeholder": "npm run build:ios",
+          "help": "Command to build iOS app for production"
+        },
+        {
+          "name": "ANDROID_BUILD_COMMAND",
+          "label": "Android Build Command",
+          "type": "text",
+          "required": false,
+          "placeholder": "npm run build:android",
+          "help": "Command to build Android app for production"
+        },
+        {
+          "name": "DESKTOP_BUILD_COMMAND",
+          "label": "Desktop Build Command",
+          "type": "text",
+          "required": false,
+          "placeholder": "npm run build:desktop",
+          "help": "Command to build desktop app for production"
+        },
+        {
+          "name": "WEB_BUILD_COMMAND",
+          "label": "Web Build Command",
+          "type": "text",
+          "required": false,
+          "placeholder": "npm run build:web",
+          "help": "Command to build web app for production"
+        },
+        {
+          "name": "USAGE_INSTRUCTIONS",
+          "label": "Usage Instructions",
+          "type": "textarea",
+          "required": true,
+          "placeholder": "1. **Sign up** - Create your account using email or social login\n2. **Setup Profile** - Complete your profile information\n3. **Explore Features** - Navigate through the main features\n4. **Sync Data** - Your data syncs automatically across all devices\n5. **Offline Mode** - The app works offline and syncs when connected",
+          "help": "How to use the application"
+        },
+        {
+          "name": "API_INTEGRATION",
+          "label": "API Integration",
+          "type": "textarea",
+          "required": false,
+          "placeholder": "The app integrates with our REST API for data synchronization:\n\n- **Base URL**: `https://api.example.com/v1`\n- **Authentication**: JWT tokens\n- **Offline Support**: Local caching with sync on reconnection\n- **Real-time Updates**: WebSocket connections for live data",
+          "help": "Information about API integration"
+        },
+        {
+          "name": "NATIVE_FEATURES",
+          "label": "Native Features",
+          "type": "textarea",
+          "required": false,
+          "placeholder": "### Platform-Specific Features\n\n**iOS:**\n- Face ID / Touch ID authentication\n- iOS Shortcuts integration\n- Apple Watch companion app\n\n**Android:**\n- Fingerprint authentication\n- Android widgets\n- Wear OS support\n\n**Desktop:**\n- System tray integration\n- File system access\n- Keyboard shortcuts",
+          "help": "Platform-specific native features"
+        },
+        {
+          "name": "TESTING_INSTRUCTIONS",
+          "label": "Testing Instructions",
+          "type": "textarea",
+          "required": false,
+          "placeholder": "Our testing strategy includes:\n\n- **Unit Tests**: Component and function testing\n- **Integration Tests**: API and database integration\n- **E2E Tests**: Complete user workflow testing\n- **Device Testing**: Physical device testing on multiple platforms",
+          "help": "Testing approach and instructions"
+        },
+        {
+          "name": "TEST_COMMAND",
+          "label": "Test Command",
+          "type": "text",
+          "required": false,
+          "default": "npm test",
+          "placeholder": "npm test"
+        },
+        {
+          "name": "PLATFORM_TEST_COMMANDS",
+          "label": "Platform Test Commands",
+          "type": "textarea",
+          "required": false,
+          "placeholder": "npm run test:ios     # iOS unit tests\nnpm run test:android # Android unit tests\nnpm run test:e2e     # End-to-end tests",
+          "help": "Platform-specific test commands"
+        },
+        {
+          "name": "DEPLOYMENT",
+          "label": "Deployment Instructions",
+          "type": "textarea",
+          "required": false,
+          "placeholder": "### App Store Deployment\n\n**iOS App Store:**\n1. Build release version: `npm run build:ios-release`\n2. Archive in Xcode\n3. Upload via App Store Connect\n\n**Google Play Store:**\n1. Generate signed APK: `npm run build:android-release`\n2. Upload via Google Play Console\n\n**Desktop Distribution:**\n1. Build installers: `npm run build:desktop-all`\n2. Code sign applications\n3. Distribute via website or stores",
+          "help": "Deployment instructions for different platforms"
+        },
+        {
+          "name": "STORE_LINKS",
+          "label": "App Store Links",
+          "type": "textarea",
+          "required": false,
+          "placeholder": "📱 **Mobile Apps:**\n- [iOS App Store](https://apps.apple.com/app/your-app)\n- [Google Play Store](https://play.google.com/store/apps/details?id=your.app)\n\n💻 **Desktop Apps:**\n- [Microsoft Store](https://www.microsoft.com/store/apps/your-app)\n- [Mac App Store](https://apps.apple.com/app/your-app)\n- [Snap Store](https://snapcraft.io/your-app)",
+          "help": "Links to published apps in various stores"
+        },
+        {
+          "name": "ARCHITECTURE",
+          "label": "Architecture",
+          "type": "textarea",
+          "required": false,
+          "placeholder": "The app follows a **Clean Architecture** pattern:\n\n```\n├── presentation/     # UI components and screens\n├── domain/          # Business logic and entities\n├── data/            # Data sources and repositories\n├── shared/          # Platform-agnostic code\n└── platform/        # Platform-specific implementations\n```\n\n**Key Principles:**\n- Separation of concerns\n- Dependency injection\n- Testable architecture\n- Shared business logic across platforms",
+          "help": "Application architecture explanation"
+        },
+        {
+          "name": "PERFORMANCE_NOTES",
+          "label": "Performance Notes",
+          "type": "textarea",
+          "required": false,
+          "placeholder": "**Performance Optimizations:**\n\n- **App Launch**: Cold start < 3 seconds\n- **Navigation**: 60 FPS smooth animations\n- **Memory Usage**: Optimized for low-end devices\n- **Battery Life**: Background processing minimized\n- **Data Usage**: Efficient API calls and caching\n- **Bundle Size**: Optimized builds for each platform",
+          "help": "Performance characteristics and optimizations"
+        },
+        {
+          "name": "TROUBLESHOOTING",
+          "label": "Troubleshooting",
+          "type": "textarea",
+          "required": false,
+          "placeholder": "### Common Issues\n\n**Build Failures:**\n- Clean build folders: `npm run clean`\n- Reset dependencies: `rm -rf node_modules && npm install`\n- Update platform tools to latest versions\n\n**iOS Issues:**\n- Clean Xcode build: `cd ios && xcodebuild clean`\n- Reset iOS Simulator\n\n**Android Issues:**\n- Clean Gradle: `cd android && ./gradlew clean`\n- Check Android SDK versions\n\n**Performance Issues:**\n- Enable Flipper for debugging\n- Check for memory leaks\n- Profile app performance",
+          "help": "Common issues and solutions"
+        },
+        {
+          "name": "LICENSE",
+          "label": "License",
+          "type": "text",
+          "required": true,
+          "default": "MIT",
+          "placeholder": "MIT"
+        },
+        {
+          "name": "AUTHOR_NAME",
+          "label": "Author Name",
+          "type": "text",
+          "required": true,
+          "placeholder": "John Doe"
+        },
+        {
+          "name": "CONTACT_INFO",
+          "label": "Contact Info",
+          "type": "text",
+          "required": true,
+          "placeholder": "john@example.com"
+        },
+        {
+          "name": "ACKNOWLEDGMENTS",
+          "label": "Acknowledgments",
+          "type": "textarea",
+          "required": false,
+          "placeholder": "- [React Native](https://reactnative.dev/) - Mobile framework\n- [Flutter](https://flutter.dev/) - Cross-platform toolkit\n- [Expo](https://expo.dev/) - Development platform\n- [Firebase](https://firebase.google.com/) - Backend services\n- [Figma](https://figma.com/) - Design collaboration",
+          "help": "Libraries, tools, and services used"
+        }
+      ]
     }
   }
 }
