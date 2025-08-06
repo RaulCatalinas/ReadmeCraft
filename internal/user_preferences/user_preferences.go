@@ -33,7 +33,7 @@ func InitPreferences() error {
 
 	appConfigDir := filepath.Join(userConfigDir, constants.APP_CONFIG_DIR)
 
-	if !utils.CreateDirectory(appConfigDir) {
+	if !utils.CreateDirectoryIfNotExist(appConfigDir) {
 		return fmt.Errorf("failed to create user config directory: %s", userConfigDir)
 	}
 
@@ -53,7 +53,11 @@ func loadPreferences() error {
 		return err
 	}
 
-	return json.Unmarshal(data, &currentPreferences)
+	preferences := json.Unmarshal(data, &currentPreferences)
+
+	println(preferences)
+
+	return preferences
 }
 
 func SavePreferences() error {
