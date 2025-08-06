@@ -1,35 +1,3 @@
-/**
- * Download a file with the given content and filename
- */
-export function downloadFile(
-  content: string,
-  filename: string,
-  mimeType: string
-) {
-  const blob = new Blob([content], { type: mimeType })
-  const url = URL.createObjectURL(blob)
-
-  const link = document.createElement("a")
-  link.href = url
-  link.download = filename
-  document.body.appendChild(link)
-  link.click()
-
-  // Cleanup
-  document.body.removeChild(link)
-  URL.revokeObjectURL(url)
-}
-
-/**
- * Export README content as a .md file
- */
-export function exportReadmeFile(content: string) {
-  downloadFile(content, "README.md", "text/markdown")
-}
-
-/**
- * Save content to localStorage (for drafts)
- */
 export function saveDraftToStorage(
   templateType: string,
   formValues: Record<string, string>,

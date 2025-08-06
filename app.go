@@ -2,6 +2,10 @@ package main
 
 import (
 	"context"
+	"fmt"
+	"os"
+
+	"github.com/wailsapp/wails/v2/pkg/runtime"
 
 	userPreferences "github.com/RaulCatalinas/ReadmeCraft/internal/user_preferences"
 )
@@ -41,4 +45,41 @@ func (a *App) shutdown(ctx context.Context) {
 	// Perform your teardown here
 
 	userPreferences.SavePreferences()
+}
+
+func (a *App) SaveFile(content string) {
+	filePath, err := runtime.SaveFileDialog(
+		a.ctx,
+		runtime.SaveDialogOptions{
+			Title:           "Save File",
+			DefaultFilename: "README.md",
+			Filters: []runtime.FileFilter{
+				{
+					DisplayName: "Markdown Files",
+					Pattern:     "*.md",
+				},
+			},
+		},
+	)
+
+	if err != nil {
+		fmt.Printf("Error saving file: %v\n", err)
+
+		return
+	}
+
+	if filePath == "" {
+		fmt.Println("Save operation cancelled.")
+		return
+	}
+
+	err = os.WriteFile(filePath, []byte(content), 0644)
+
+	if err != nil {
+		fmt.Printf("Error saving file: %v\n", err)
+
+		return
+	}
+
+	fmt.Printf("File saved successfully to %s\n", filePath)
 }

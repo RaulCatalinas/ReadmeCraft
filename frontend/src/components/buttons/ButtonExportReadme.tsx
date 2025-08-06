@@ -6,8 +6,10 @@ import { useFormStore } from "@/src/stores/form"
 import { useReadyToExportStore } from "@/src/stores/ready-to-export"
 
 // Utils
-import { exportReadmeFile } from "@/src/utils/export-utils"
 import { generateReadme } from "@/src/utils/readme-generator"
+
+// Wailsjs
+import { SaveFile } from "@/wailsjs/main/App"
 
 export default function ButtonExportReadme() {
   const isReadyToExport = useReadyToExportStore(state => state.isReadyToExport)
@@ -16,7 +18,7 @@ export default function ButtonExportReadme() {
 
   const [isExporting, setIsExporting] = useState(false)
 
-  const handleExport = () => {
+  const handleExport = async () => {
     if (!isReadyToExport || isExporting) return
 
     setIsExporting(true)
@@ -26,7 +28,7 @@ export default function ButtonExportReadme() {
       const readmeContent = generateReadme(selectedTemplate, formValues)
 
       // Export the file
-      exportReadmeFile(readmeContent)
+      await SaveFile(readmeContent)
 
       console.log("README exported successfully")
     } catch (error) {
