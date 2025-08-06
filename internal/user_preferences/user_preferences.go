@@ -8,6 +8,7 @@ import (
 
 	"github.com/RaulCatalinas/ReadmeCraft/internal/constants"
 	"github.com/RaulCatalinas/ReadmeCraft/internal/types"
+	"github.com/RaulCatalinas/ReadmeCraft/internal/utils"
 )
 
 type userPreferencesGenerator struct {
@@ -25,10 +26,18 @@ var configPath string
 
 func InitPreferences() error {
 	userConfigDir, err := os.UserConfigDir()
+
 	if err != nil {
 		return err
 	}
-	configPath = filepath.Join(userConfigDir, constants.USER_PREFERENCES_FILE)
+
+	appConfigDir := filepath.Join(userConfigDir, constants.APP_CONFIG_DIR)
+
+	if !utils.CreateDirectory(appConfigDir) {
+		return fmt.Errorf("failed to create user config directory: %s", userConfigDir)
+	}
+
+	configPath = filepath.Join(appConfigDir, constants.USER_PREFERENCES_FILE)
 
 	if err := loadPreferences(); err != nil {
 		currentPreferences = constants.DEFAULT_USER_PREFERENCES
