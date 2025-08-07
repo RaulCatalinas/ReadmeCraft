@@ -2,15 +2,16 @@
 import { useState } from "react"
 
 // Stores
-import { useDarkModeStore } from "@/src/stores/dark-mode"
 import { useFormStore } from "@/src/stores/form"
 
 // Utils
 import { saveDraftToStorage } from "@/src/utils/export-utils"
 import { generateReadmePreview } from "@/src/utils/readme-generator"
 
+// Components
+import BaseSecondaryButton from "./BaseSecondaryButton"
+
 export default function ButtonSaveDraft() {
-  const isDarkModeActive = useDarkModeStore(state => state.isDarkModeActive)
   const selectedTemplate = useFormStore(state => state.selectedTemplate)
   const formValues = useFormStore(state => state.formValues)
 
@@ -50,20 +51,11 @@ export default function ButtonSaveDraft() {
   }
 
   return (
-    <button
-      className={`
-        px-4 py-2 rounded-lg transition-colors hover:cursor-pointer
-        ${isSaving ? "opacity-50 cursor-not-allowed" : ""}
-        ${
-          isDarkModeActive
-            ? "text-white bg-gray-800 hover:bg-gray-700"
-            : "text-gray-700 bg-gray-100 hover:"
-        }
-      `}
-      onClick={handleSaveDraft}
+    <BaseSecondaryButton
+      className={isSaving ? "opacity-50 cursor-not-allowed" : ""}
       disabled={isSaving}
-    >
-      {isSaving ? "Saving..." : "Save Draft"}
-    </button>
+      onClick={handleSaveDraft}
+      text={isSaving ? "Saving..." : "Save Draft"}
+    />
   )
 }
