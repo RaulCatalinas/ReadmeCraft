@@ -27,7 +27,7 @@ export default function ButtonToggleDarkMode() {
     <button
       onClick={handleToggleDarkModeActive}
       className={`
-        p-2 rounded-lg transition-colors 
+        p-2 rounded-lg transition-colors hover:cursor-pointer
         ${
           isDarkModeActive
             ? "bg-gray-800 text-gray-300 hover:bg-gray-700 hover:text-white"

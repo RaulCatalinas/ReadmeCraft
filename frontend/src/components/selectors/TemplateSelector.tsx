@@ -34,7 +34,7 @@ export default function TemplateSelector() {
         onChange={handleTemplateChange}
         className={`
           px-4 py-2 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent 
-          transition-colors
+          transition-colors hover:cursor-pointer
           ${
             isDarkModeActive
               ? "bg-gray-800 border-gray-600 text-white hover:border-gray-500"

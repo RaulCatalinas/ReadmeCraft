@@ -16,17 +16,20 @@ export default function ButtonSaveDraft() {
 
   const [isSaving, setIsSaving] = useState(false)
 
-  const handleSaveDraft = () => {
+  const handleSaveDraft = async () => {
     if (isSaving) return
 
     setIsSaving(true)
 
     try {
       // Generate current README content
-      const readmeContent = generateReadmePreview(selectedTemplate, formValues)
+      const readmeContent = await generateReadmePreview(
+        selectedTemplate,
+        formValues
+      )
 
       // Save to localStorage
-      const success = saveDraftToStorage(
+      const success = await saveDraftToStorage(
         selectedTemplate,
         formValues,
         readmeContent
@@ -49,12 +52,12 @@ export default function ButtonSaveDraft() {
   return (
     <button
       className={`
-        px-4 py-2 rounded-lg transition-colors
+        px-4 py-2 rounded-lg transition-colors hover:cursor-pointer
         ${isSaving ? "opacity-50 cursor-not-allowed" : ""}
         ${
           isDarkModeActive
-            ? "text-gray-300 hover:bg-gray-800 hover:text-white"
-            : "text-gray-700 hover:bg-gray-100"
+            ? "text-white bg-gray-800 hover:bg-gray-700"
+            : "text-gray-700 bg-gray-100 hover:"
         }
       `}
       onClick={handleSaveDraft}
