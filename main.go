@@ -11,8 +11,10 @@ import (
 	"github.com/wailsapp/wails/v2/pkg/options"
 	"github.com/wailsapp/wails/v2/pkg/options/assetserver"
 
+	appLogging "github.com/RaulCatalinas/ReadmeCraft/internal/app_logging"
 	"github.com/RaulCatalinas/ReadmeCraft/internal/types"
 	userPreferences "github.com/RaulCatalinas/ReadmeCraft/internal/user_preferences"
+	"github.com/RaulCatalinas/ReadmeCraft/internal/utils"
 )
 
 //go:embed all:frontend/dist
@@ -61,9 +63,12 @@ func main() {
 		Bind: []interface{}{
 			app,
 			userPreferences.NewUserPreferencesGenerator(),
+			appLogging.NewLoggingManagerGenerator(),
+			utils.NewUtilsGenerator(),
 		},
 		EnumBind: []interface{}{
 			types.AllUserPreferences,
+			types.AllLogLevels,
 		},
 	})
 

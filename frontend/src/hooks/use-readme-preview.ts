@@ -1,5 +1,5 @@
 // React
-import { useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 
 // Store
 import { useFormStore } from "@/src/stores/form"
@@ -9,6 +9,10 @@ import { generateReadmePreview } from "@/src/utils/readme-generator"
 
 // Types
 import type { FieldValue, TemplateType } from "@/src/types/form"
+
+// Wailsjs
+import { WriteLog } from "@/wailsjs/app_logging/loggingManager"
+import { types } from "@/wailsjs/models"
 
 interface UseReadmePreviewResult {
   readmeContent: string
@@ -27,26 +31,33 @@ export function useReadmePreview(): UseReadmePreviewResult {
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>("")
 
+  const generatePreview = useCallback(
+    async (template: TemplateType, values: FieldValue) => {
+      setIsLoading(true)
+      setError(null)
+
+      try {
+        const content = await generateReadmePreview(template, values)
+        setReadmeContent(content)
+      } catch (err) {
+        await WriteLog(
+          types.LogLevel.ERROR,
+          `Error generating README preview: ${err instanceof Error ? err.message : String(err)}`
+        )
+        setError(
+          err instanceof Error ? err.message : "Failed to generate preview"
+        )
+        setReadmeContent("# Error\n\nFailed to generate README preview.")
+      } finally {
+        setIsLoading(false)
+      }
+    },
+    []
+  )
+
   useEffect(() => {
-    generatePreview(selectedTemplate, formValues)
-  }, [selectedTemplate, formValues])
-
-  const generatePreview = (template: TemplateType, values: FieldValue) => {
-    setIsLoading(true)
-    setError(null)
-
-    try {
-      const content = generateReadmePreview(template, values)
-      setReadmeContent(content)
-    } catch (err) {
-      setError(
-        err instanceof Error ? err.message : "Failed to generate preview"
-      )
-      setReadmeContent("# Error\n\nFailed to generate README preview.")
-    } finally {
-      setIsLoading(false)
-    }
-  }
+    void generatePreview(selectedTemplate, formValues)
+  }, [selectedTemplate, formValues, generatePreview])
 
   return {
     readmeContent,

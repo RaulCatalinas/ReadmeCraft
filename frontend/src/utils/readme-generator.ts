@@ -10,17 +10,24 @@ import configData from "@/src/templates/config.json"
 // Types
 import type { FieldValue, TemplateType } from "@/src/types/form"
 
+// Wailsjs
+import { WriteLog } from "@/wailsjs/app_logging/loggingManager"
+import { types } from "@/wailsjs/models"
+
 /**
  * Generate README content from template and form values
  */
-export function generateReadme(
+export async function generateReadme(
   templateType: TemplateType,
   formValues: FieldValue
-): string {
+): Promise<string> {
   try {
     return processTemplate(TEMPLATE_FILES_MAP[templateType], formValues)
   } catch (error) {
-    console.error("Failed to generate README:", error)
+    await WriteLog(
+      types.LogLevel.ERROR,
+      `Failed to generate README for ${templateType}: ${error}`
+    )
     return `# Error\n\nFailed to generate README: ${error}`
   }
 }
@@ -51,10 +58,10 @@ export function isReadmeReadyToExport(
 /**
  * Generate a preview of the README with placeholder content for empty fields
  */
-export function generateReadmePreview(
+export async function generateReadmePreview(
   templateType: TemplateType,
   formValues: FieldValue
-): string {
+): Promise<string> {
   const config = configData.templates[templateType]
   const enhancedValues = { ...formValues }
 
@@ -64,9 +71,9 @@ export function generateReadmePreview(
       !enhancedValues[field.name] ||
       enhancedValues[field.name].trim() === ""
     ) {
-      enhancedValues[field.name] = field.placeholder || `[${field.label}]`
+      enhancedValues[field.name] = field.placeholder ?? `[${field.label}]`
     }
   })
 
-  return generateReadme(templateType, enhancedValues)
+  return await generateReadme(templateType, enhancedValues)
 }

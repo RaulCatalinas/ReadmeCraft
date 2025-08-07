@@ -7,8 +7,12 @@ import (
 
 	"github.com/wailsapp/wails/v2/pkg/runtime"
 
+	appLogging "github.com/RaulCatalinas/ReadmeCraft/internal/app_logging"
+	"github.com/RaulCatalinas/ReadmeCraft/internal/types"
 	userPreferences "github.com/RaulCatalinas/ReadmeCraft/internal/user_preferences"
 )
+
+var loggerManagerGenerator = appLogging.NewLoggingManagerGenerator()
 
 // App struct
 type App struct {
@@ -45,6 +49,7 @@ func (a *App) shutdown(ctx context.Context) {
 	// Perform your teardown here
 
 	userPreferences.SavePreferences()
+	appLogging.GetLogger().SaveLogs()
 }
 
 func (a *App) SaveFile(content string) {
@@ -63,23 +68,42 @@ func (a *App) SaveFile(content string) {
 	)
 
 	if err != nil {
-		fmt.Printf("Error saving file: %v\n", err)
+		loggerManagerGenerator.WriteLog(
+			types.LOG_LEVEL_ERROR,
+			fmt.Sprintf(
+				"Error opening save file dialog: %s",
+				err.Error(),
+			),
+		)
 
 		return
 	}
 
 	if filePath == "" {
-		fmt.Println("Save operation cancelled.")
+		loggerManagerGenerator.WriteLog(
+			types.LOG_LEVEL_INFO,
+			"Save operation cancelled by user.",
+		)
+
 		return
 	}
 
 	err = os.WriteFile(filePath, []byte(content), 0644)
 
 	if err != nil {
-		fmt.Printf("Error saving file: %v\n", err)
+		loggerManagerGenerator.WriteLog(
+			types.LOG_LEVEL_ERROR,
+			fmt.Sprintf(
+				"Error saving file: %s",
+				err.Error(),
+			),
+		)
 
 		return
 	}
 
-	fmt.Printf("File saved successfully to %s\n", filePath)
+	loggerManagerGenerator.WriteLog(
+		types.LOG_LEVEL_INFO,
+		fmt.Sprintf("File saved successfully to %s", filePath),
+	)
 }

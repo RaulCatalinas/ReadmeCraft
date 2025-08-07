@@ -1,4 +1,8 @@
-export function saveDraftToStorage(
+// Wailsjs
+import { WriteLog } from "@/wailsjs/app_logging/loggingManager"
+import { types } from "@/wailsjs/models"
+
+export async function saveDraftToStorage(
   templateType: string,
   formValues: Record<string, string>,
   readmeContent: string
@@ -14,6 +18,7 @@ export function saveDraftToStorage(
     localStorage.setItem("readme-craft-draft", JSON.stringify(draft))
     return true
   } catch (error) {
+    await WriteLog(types.LogLevel.ERROR, `Failed to save draft: ${error}`)
     console.error("Failed to save draft:", error)
     return false
   }
@@ -22,14 +27,14 @@ export function saveDraftToStorage(
 /**
  * Load draft from localStorage
  */
-export function loadDraftFromStorage() {
+export async function loadDraftFromStorage() {
   try {
     const draftString = localStorage.getItem("readme-craft-draft")
     if (!draftString) return null
 
     return JSON.parse(draftString)
   } catch (error) {
-    console.error("Failed to load draft:", error)
+    await WriteLog(types.LogLevel.ERROR, `Failed to load draft: ${error}`)
     return null
   }
 }
@@ -37,11 +42,12 @@ export function loadDraftFromStorage() {
 /**
  * Clear draft from localStorage
  */
-export function clearDraftFromStorage() {
+export async function clearDraftFromStorage() {
   try {
     localStorage.removeItem("readme-craft-draft")
     return true
   } catch (error) {
+    await WriteLog(types.LogLevel.ERROR, `Failed to clear draft: ${error}`)
     console.error("Failed to clear draft:", error)
     return false
   }
