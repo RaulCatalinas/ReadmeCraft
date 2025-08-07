@@ -17,19 +17,26 @@ ReadmeCraft is a powerful, cross-platform desktop application built with Go and 
 
 ## 📦 Installation
 
-### Download Pre-built Binaries
+### Download Pre-built Binaries (Recommended)
 
 Download the latest release for your platform:
 
 - **Windows**: [ReadmeCraft-windows](https://github.com/RaulCatalinas/ReadmeCraft/releases)
-- **macOS**: [ReadmeCraft-darwin](https://github.com/RaulCatalinas/ReadmeCraft/releases)
+- **macOS**: [ReadmeCraft-macos](https://github.com/RaulCatalinas/ReadmeCraft/releases)
 - **Linux**: [ReadmeCraft-linux](https://github.com/RaulCatalinas/ReadmeCraft/releases)
 
 ### Build from Source
 
+**Requirements:**
+
+- **Go**: 1.24.2 or higher
+- **Node.js**: 22.14.x or higher (for frontend dependencies)
+- **Wails**: v2.10.x
+
 ```bash
 # Clone the repository
 git clone https://github.com/yourusername/readmecraft.git
+
 cd readmecraft
 
 # Install Wails CLI (if not already installed)
@@ -39,25 +46,13 @@ go install github.com/wailsapp/wails/v2/cmd/wails@latest
 wails build
 ```
 
-### Requirements
-
-- **Go**: 1.24.2 or higher
-- **Node.js**: 22.14.x or higher (for frontend dependencies)
-- **Wails**: v2.10.x
-
-## 🚀 Quick Start
-
-1. **Launch ReadmeCraft** from your applications menu
-2. **Choose a template** that matches your project type
-3. **Fill in the guided form** with your project details
-4. **Preview in real-time** as your README takes shape
-5. **Export or save** your polished README.md file
-
 ## 🎛️ Usage
 
-### Creating Your First README
+### Getting Started
 
-1. Select from available templates:
+1. **Launch ReadmeCraft** from your applications menu or run the executable
+
+2. **Choose a template** that matches your project type:
 
    - 🌐 **Web Application**
    - 🔧 **CLI Tool**
@@ -65,9 +60,11 @@ wails build
    - 🔌 **API Service**
    - 📱 **Multiplatform App**
 
-2. Fill in the project information through the intuitive form interface
-3. Watch the real-time preview update as you type
-4. Export to your project directory
+3. **Fill in the guided form** with your project details
+
+4. **Preview in real-time** as your README takes shape in the split-pane interface
+
+5. **Export** your polished README.md file to your project directory
 
 ## 🤝 Contributing
 
@@ -76,11 +73,15 @@ We welcome contributions! Here's how you can help:
 ### Development Setup
 
 1. **Fork and clone** the repository
+
 2. **Install dependencies**:
+
    ```bash
    cd frontend && bun install
    ```
+
 3. **Run in development mode**:
+
    ```bash
    wails dev
    ```
@@ -97,6 +98,10 @@ We welcome contributions! Here's how you can help:
 - Go code follows `gofmt` and `golint` standards
 - Frontend uses `ESLint` and `Prettier` configurations
 
+## 📞 Support
+
+- **GitHub**: https://github.com/RaulCatalinas/ReadmeCraft/issues
+
 ## 📄 License
 
 This project is licensed under the CC BY-NC-SA 4.0 License - see the [LICENSE](LICENSE) file for details.
@@ -107,10 +112,6 @@ This project is licensed under the CC BY-NC-SA 4.0 License - see the [LICENSE](L
 - **[Go](https://golang.org)** - For the robust backend language
 - **[React](https://reactjs.org)** - For the responsive frontend
 - **Community contributors** - Thank you for your valuable feedback and contributions!
-
-## 📞 Support
-
-- **GitHub**: https://github.com/RaulCatalinas/ReadmeCraft/issues
 
 ---
 
