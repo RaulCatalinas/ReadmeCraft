@@ -25,7 +25,7 @@ export default function ButtonExportReadme() {
 
     try {
       // Generate the final README content
-      const readmeContent = generateReadme(selectedTemplate, formValues)
+      const readmeContent = await generateReadme(selectedTemplate, formValues)
 
       // Export the file
       await SaveFile(readmeContent)
