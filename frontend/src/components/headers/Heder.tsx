@@ -1,5 +1,6 @@
 // Components
 import ButtonOpenLogDir from "../buttons/ButtonOpenLogDir"
+import ButtonReportIssue from "../buttons/ButtonReportIssue"
 import ButtonToggleDarkMode from "../buttons/ButtonToggleDarkMode"
 import TemplateSelector from "../selectors/TemplateSelector"
 
@@ -24,6 +25,7 @@ export default function Header() {
       <TemplateSelector />
       <div className="flex flex-row items-center justify-center gap-4">
         <ButtonOpenLogDir />
+        <ButtonReportIssue />
         <ButtonToggleDarkMode />
       </div>
     </header>

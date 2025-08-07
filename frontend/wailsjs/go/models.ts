@@ -1,14 +1,14 @@
 export namespace types {
 	
-	export enum UserPreferencesKeys {
-	    IS_DARK_MODE_ACTIVE = "isDarkModeActive",
-	}
 	export enum LogLevel {
 	    DEBUG = "DEBUG",
 	    INFO = "INFO",
 	    WARNING = "WARNING",
 	    ERROR = "ERROR",
 	    FATAL = "FATAL",
+	}
+	export enum UserPreferencesKeys {
+	    IS_DARK_MODE_ACTIVE = "isDarkModeActive",
 	}
 	export class UserPreferences {
 	    isDarkModeActive: boolean;

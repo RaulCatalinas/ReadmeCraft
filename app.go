@@ -5,9 +5,11 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/skratchdot/open-golang/open"
 	"github.com/wailsapp/wails/v2/pkg/runtime"
 
 	appLogging "github.com/RaulCatalinas/ReadmeCraft/internal/app_logging"
+	"github.com/RaulCatalinas/ReadmeCraft/internal/constants"
 	"github.com/RaulCatalinas/ReadmeCraft/internal/types"
 	userPreferences "github.com/RaulCatalinas/ReadmeCraft/internal/user_preferences"
 )
@@ -106,4 +108,18 @@ func (a *App) SaveFile(content string) {
 		types.LOG_LEVEL_INFO,
 		fmt.Sprintf("File saved successfully to %s", filePath),
 	)
+}
+
+func (a *App) OpenIssueReport() {
+	err := open.Run(constants.REPORT_ISSUES_URL)
+
+	if err != nil {
+		loggerManagerGenerator.WriteLog(
+			types.LOG_LEVEL_ERROR,
+			fmt.Sprintf(
+				"Failed to open issue report URL in browser: %s",
+				err.Error(),
+			),
+		)
+	}
 }

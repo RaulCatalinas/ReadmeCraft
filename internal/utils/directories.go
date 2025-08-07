@@ -67,5 +67,15 @@ func (utg *utilsGenerator) OpenLogDirectory() {
 
 	appConfigDir := filepath.Join(userConfigDir, constants.APP_CONFIG_DIR)
 
-	open.Run(filepath.Join(appConfigDir, "Logs"))
+	openDirectoryErr := open.Run(filepath.Join(appConfigDir, "Logs"))
+
+	if openDirectoryErr != nil {
+		loggerManagerGenerator.WriteLog(
+			types.LOG_LEVEL_ERROR,
+			fmt.Sprintf(
+				"Error attempting to open the logs directory: %s",
+				openDirectoryErr.Error(),
+			),
+		)
+	}
 }
