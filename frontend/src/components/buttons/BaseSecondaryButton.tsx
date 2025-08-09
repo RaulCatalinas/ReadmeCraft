@@ -1,4 +1,7 @@
+// Stores
 import { useDarkModeStore } from "@/src/stores/dark-mode"
+
+// React
 import type { MouseEventHandler } from "react"
 
 interface SecondaryButtonProps {
@@ -24,7 +27,7 @@ export default function BaseSecondaryButton({
         ${
           isDarkModeActive
             ? "text-white bg-gray-800 hover:bg-gray-700"
-            : "text-gray-700 bg-gray-100 hover:bg-gray-600"
+            : "text-gray-700 bg-gray-200 hover:bg-gray-100"
         }
         ${className}
       `}
