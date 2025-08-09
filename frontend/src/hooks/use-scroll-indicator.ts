@@ -1,4 +1,4 @@
-import { type RefObject, useEffect, useState } from "react"
+import { type RefObject, useCallback, useEffect, useState } from "react"
 
 interface UseScrollIndicatorProps {
   containerRef: RefObject<HTMLDivElement | null>
@@ -13,17 +13,29 @@ export function useScrollIndicator({
 }: UseScrollIndicatorProps) {
   const [showIndicator, setShowIndicator] = useState(false)
 
-  useEffect(() => {
+  const checkScroll = useCallback(() => {
     const container = containerRef.current
     if (!container) return
 
-    const checkScroll = () => {
-      const { scrollTop, scrollHeight, clientHeight } = container
-      const hasMoreContent = scrollHeight > clientHeight
-      const isAtBottom = scrollTop + clientHeight >= scrollHeight - threshold
+    const { scrollTop, scrollHeight, clientHeight } = container
+    const hasMoreContent = scrollHeight > clientHeight
+    const isAtBottom = scrollTop + clientHeight >= scrollHeight - threshold
 
-      setShowIndicator(hasMoreContent && !isAtBottom)
+    setShowIndicator(hasMoreContent && !isAtBottom)
+  }, [containerRef, threshold])
+
+  const scrollDown = () => {
+    if (containerRef.current) {
+      containerRef.current.scrollBy({
+        top: amount,
+        behavior: "smooth"
+      })
     }
+  }
+
+  useEffect(() => {
+    const container = containerRef.current
+    if (!container) return
 
     // Check initially
     checkScroll()
@@ -39,16 +51,7 @@ export function useScrollIndicator({
       container.removeEventListener("scroll", checkScroll)
       resizeObserver.disconnect()
     }
-  }, [containerRef, threshold])
-
-  const scrollDown = () => {
-    if (containerRef.current) {
-      containerRef.current.scrollBy({
-        top: amount,
-        behavior: "smooth"
-      })
-    }
-  }
+  }, [containerRef, threshold, checkScroll])
 
   return {
     showIndicator,
